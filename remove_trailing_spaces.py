@@ -79,16 +79,24 @@ def main():
     args = parser.parse_args()
 
     # terminating if no repo path provided
-    if args.git_repo_root is None:
+    if isinstance(args.git_repo_root, str) and os.path.isdir(args.git_repo_root):
+        os.chdir(args.git_repo_root)
+        print(f"LOG: Now working on {args.git_repo_root}.")
+    else:
         print("Please provide a valid repository path")
-
-
-    os.chdir(args.git_repo_root)
-    print(f"LOG: changing working directory to {args.git_repo_root}")
-
+        exit()
+    
     # printing arguments for logs.
     print(f"LOG: repository root = {args.git_repo_root}")
     print(f"LOG: extensions = {args.extensions_list}")
+
+    # test if the path is that of a git repository
+    exit_code = os.system('git status')
+    if exit_code != 0:
+        print(
+            f"{args.git_repo_root}" is not "
+            "the path of a git repository")
+        exit()
 
     # listing files
     files_to_read = listing_files(
