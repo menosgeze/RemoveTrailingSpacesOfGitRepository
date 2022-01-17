@@ -85,7 +85,7 @@ def main():
     else:
         print("Please provide a valid repository path")
         exit()
-    
+
     # printing arguments for logs.
     print(f"LOG: repository root = {args.git_repo_root}")
     print(f"LOG: extensions = {args.extensions_list}")
@@ -94,7 +94,7 @@ def main():
     exit_code = os.system('git status')
     if exit_code != 0:
         print(
-            f"{args.git_repo_root}" is not "
+            f"{args.git_repo_root} is not "
             "the path of a git repository")
         exit()
 
