@@ -84,7 +84,10 @@ def main():
     args = parser.parse_args()
 
     # terminating if no repo path provided
-    if isinstance(args.git_repo_root, str) and os.path.isdir(args.git_repo_root):
+    if (
+        isinstance(args.git_repo_root, str) and
+        os.path.isdir(args.git_repo_root)
+    ):
         os.chdir(args.git_repo_root)
         print(f"LOG: Now working on {args.git_repo_root}.")
     else:
