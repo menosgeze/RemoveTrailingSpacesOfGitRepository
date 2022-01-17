@@ -71,10 +71,10 @@ def main():
     parser = argparse.ArgumentParser(
          description='')
     parser.add_argument(
-        '--git_repo_root', '--rr', type=str, default=None,
+        '--git_repo_root', '-r', type=str, default=None,
         help='absolute path of the repository root')
     parser.add_argument(
-        '--extensions_list', '--el', type=list, default=['py'],
+        '--extensions_list', '-e', type=list, default=['py'],
         help='list of extensions of files to modify')
     args = parser.parse_args()
 
