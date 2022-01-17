@@ -12,7 +12,7 @@ def listing_files(dirname: str, extensions_list: list):
     Arguments:
     - dirname (str): git repository local absolute path.
     - extensions_list (list): list of strings of all extensions to consider.
-    
+
     Returns:
     - (list of str): absolute paths of files to consider.
     """
@@ -25,9 +25,12 @@ def listing_files(dirname: str, extensions_list: list):
 
     files_to_read = []
     for ext in extensions_list:
-        files_to_read += [
+        print(f"Checking extension: {ext}")
+        files_with_ext = [
             filename for filename in list_of_files
             if filename.endswith(ext)]
+        print(files_with_ext)
+        files_to_read += files_with_ext
 
     return files_to_read
 
@@ -54,8 +57,8 @@ def main():
     """
     Takes as input a git repository path and a list of extensions
     for the files to consider. Then finds all such files in the repository,
-    and then removes the trailing spaces from all of them, and 
-    """    
+    and then removes the trailing spaces from all of them, and
+    """
 
     # reading terminal arguments: repository path and list of extensions to consider.
     parser = argparse.ArgumentParser(
@@ -74,17 +77,21 @@ def main():
     # printing arguments for logs.
     print(f"LOG: repository root = {args.git_repo_root}")
     print(f"LOG: extensions = {args.extensions_list}")
-     
+
     # listing files
     files_to_read = listing_files(
         args.git_repo_root,
         extensions_list=args.extensions_list)
 
     print(f"LOG: there are {len(files_to_read)} in this repository")
-    print(f"     e.g. {files_to_read[0]}")
+    print(f"     e.g. ?{files_to_read[0]}?")
 
-    if len(files_to_read):
-    
+    if len(files_to_read) == 0:
+        print(
+            f"There are no files with "
+            "the given extensions in this repository")
+        exit()
+
     # removing trailing spaces
     removing_spaces(files_to_read)
 
