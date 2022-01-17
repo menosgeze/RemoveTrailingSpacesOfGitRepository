@@ -1,6 +1,11 @@
 """
 This script removes all trailing spaces of files with the given extensions
 in a git repository, and then commits this change.
+
+Copyright (c) 2022, Gerardo E Zelaya Eufemia
+All rights reserved.
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
 """
 
 import argparse
