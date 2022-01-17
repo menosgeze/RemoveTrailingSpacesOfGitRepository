@@ -1,0 +1,25 @@
+# RemoveTrailingSpaces
+The purpose of this repository is to demostrate my python programming skills. The python script removes all trailing spaces of the python scripts in a git repository.
+
+## Description
+The script reads all scripts whose extensions are in a list of extensions provided, and which are a given git repository tree provided by its local path. It removes the trailing spaces, and it commits the changes. 
+
+### Dependencies
+Python3
+
+### Installing
+Download the repository.
+
+### Executing program and Help
+```python3 remove_trailing_space.py --help```
+e.g.
+```python3 remove_trailing_space.py -r <repo_root_path> -e py txt```
+
+## Authors
+Gerardo E Zelaya Eufemia
+
+## Version History
+* 0.1 (Initial Release)
+
+## License
+This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
